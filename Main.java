@@ -21,7 +21,7 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    // TODO: implementar
+                    // TODO: implementa
                     break;
                 case "2":
                     // TODO: implementar
