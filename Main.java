@@ -21,7 +21,13 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    // TODO: implementa
+                    System.out.print("Título: ");
+                    String titulo = scanner.nextLine();
+                    System.out.print("Contenido: ");
+                    String contenido = scanner.nextLine();
+                    System.out.print("¿Es importante? (s/n): ");
+                    boolean importante = scanner.nextLine().equalsIgnoreCase("s");
+                    gestor.crearNota(titulo, contenido, importante);
                     break;
                 case "2":
                     // TODO: implementar
