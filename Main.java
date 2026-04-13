@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class Main {
 
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         GestorNotas gestor = new GestorNotas();
-
         boolean salir = false;
 
         while (!salir) {
@@ -21,12 +21,9 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    System.out.print("Título: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Contenido: ");
-                    String contenido = scanner.nextLine();
-                    System.out.print("¿Es importante? (s/n): ");
-                    boolean importante = scanner.nextLine().equalsIgnoreCase("s");
+                    String titulo      = pedirTextoObligatorio("Título");
+                    String contenido   = pedirTextoObligatorio("Contenido");
+                    boolean importante = pedirSiONo("¿Es importante? (s/n)");
                     gestor.crearNota(titulo, contenido, importante);
                     break;
                 case "2":
@@ -44,5 +41,30 @@ public class Main {
         }
 
         scanner.close();
+    }
+
+    private static String pedirTextoObligatorio(String etiqueta) {
+        String valor = "";
+        while (valor.isEmpty()) {
+            System.out.print(etiqueta + ": ");
+            valor = scanner.nextLine().trim();
+            if (valor.isEmpty()) {
+                System.out.println("El campo '" + etiqueta + "' no puede estar vacío.");
+            }
+        }
+        return valor;
+    }
+
+    private static boolean pedirSiONo(String pregunta) {
+        String respuesta = "";
+        while (!respuesta.equals("s") && !respuesta.equals("n")) {
+            System.out.print(pregunta + ": ");
+            //trim() para eliminar espacios al inicio y al final, toLowerCase() para convertir a minúsculas
+            respuesta = scanner.nextLine().trim().toLowerCase();
+            if (!respuesta.equals("s") && !respuesta.equals("n")) {
+                System.out.println("Respuesta no válida. Introduce 's' o 'n'.");
+            }
+        }
+        return respuesta.equals("s");
     }
 }
