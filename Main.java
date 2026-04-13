@@ -11,7 +11,7 @@ public class Main {
 
         while (!salir) {
 
-            System.out.println("\n=== GESTOR DE NOTAS - VERSION PRINCIPAL ===");
+            System.out.println("\n=== GESTOR DE NOTAS - VERSION LISTADO ===");
             System.out.println("1. Crear nota");
             System.out.println("2. Listar notas");
             System.out.println("3. Listar importantes");
@@ -27,10 +27,10 @@ public class Main {
                     gestor.crearNota(titulo, contenido, importante);
                     break;
                 case "2":
-                    // TODO: implementar
+                    gestor.listarNotas();
                     break;
                 case "3":
-                    // TODO: implementar
+                    gestor.listarImportantes();
                     break;
                 case "0":
                     salir = true;
