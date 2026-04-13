@@ -30,7 +30,7 @@ public class Main {
                     gestor.listarNotas();
                     break;
                 case "3":
-                    // TODO: implementar
+                    gestor.listarImportantes();
                     break;
                 case "0":
                     salir = true;
